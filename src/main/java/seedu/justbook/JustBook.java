@@ -36,6 +36,7 @@ public class JustBook {
     static final List<Bookings> appointments = new ArrayList<>();
     static final HashMap<LocalDate, LocalDate> BLOCKLIST = new HashMap<>(5);
     private static final Logger logger = Logger.getLogger(JustBook.class.getName());
+    private static UserInterface ui = new UserInterface();
 
     public static void main(String[] args) {
 
@@ -47,21 +48,10 @@ public class JustBook {
             e.printStackTrace();
         }
 
-        String logo = " ____        _        \n"
-                + "|  _ \\ _   _| | _____ \n"
-                + "| | | | | | | |/ / _ \\\n"
-                + "| |_| | |_| |   <  __/\n"
-                + "|____/ \\__,_|_|\\_\\___|\n";
-        System.out.println("Hello from\n" + logo);
-        System.out.println("What is your name?");
-
+        ui.printGreeting();
         Scanner in = new Scanner(System.in);
         String userName = in.nextLine();
-
-        System.out.printf("Hello %s,%n", userName);
-        // write your code here
-        System.out.printf("Welcome back!%n");
-        System.out.printf("You can now proceed to do your booking :)%n");
+        ui.welcomeUser(userName);
 
         while (true) {
             System.out.printf("%n%s: ", userName);
